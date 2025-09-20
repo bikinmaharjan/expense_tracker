@@ -1,0 +1,148 @@
+:root {
+  /* Typography */
+  --font-sans: system-ui, Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --line-height: 1.5;
+  --fw-normal: 400;
+
+  /* Minimalist color palette (light mode) */
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --primary: #3b82f6; /* blue-500 */
+  --accent: #10b981; /* green-500 */
+  --danger: #ef4444; /* red-500 */
+
+  color-scheme: light;
+  color: var(--text);
+  background-color: var(--bg);
+
+  font-family: var(--font-sans);
+  line-height: var(--line-height);
+  font-weight: var(--fw-normal);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover {
+  color: #2f6fe6;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(59,130,246,0.12);
+}
+button:focus,
+button:focus-visible {
+  outline: 3px solid rgba(59,130,246,0.18);
+}
+
+.card {
+  padding: 2em;
+}
+
+#app {
+  /* Make the main content use the full available width (with gutters) */
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Ensure data tables and their wrappers can expand and scroll if necessary */
+.v-data-table {
+  width: 100%;
+}
+.v-data-table .v-data-table__wrapper {
+  overflow-x: auto;
+  min-width: 700px; /* prevents content from compressing too tightly */
+}
+
+/* Allow cards to use available width inside the #app container */
+.v-card {
+  max-width: none;
+}
+
+/* Card surfaces */
+.v-card {
+  background: var(--surface) !important;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15,23,36,0.06);
+}
+
+/* Headings */
+.text-h4 {
+  color: var(--text);
+}
+
+/* Tag chip helpers for consistent contrast */
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff; /* default, overridden inline where needed */
+  box-shadow: 0 1px 2px rgba(15,23,36,0.06);
+}
+
+/* Ensure chip text has enough contrast: if background is light, use dark text */
+.tag-chip.light {
+  color: var(--text);
+  border: 1px solid rgba(15,23,36,0.06);
+}
+
+/* Small utility spacing */
+.mr-1 { margin-right: 0.35rem; }
+.mt-4 { margin-top: 1rem; }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
