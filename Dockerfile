@@ -1,18 +1,19 @@
-FROM node:18 as frontend-builder
+FROM node:20 AS frontend-builder
 
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
-RUN npm install
+COPY frontend/package-lock.json ./
+RUN npm ci
 COPY frontend/ .
 RUN npm run build
 
-FROM golang:1.21 as backend-builder
+FROM golang:1.24 AS backend-builder
 
 WORKDIR /app/backend
 COPY backend/go.* ./
 RUN go mod download
 COPY backend/ .
-RUN CGO_ENABLED=1 GOOS=linux go build -o main cmd/api/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o main cmd/api/main.go
 
 FROM debian:bullseye-slim
 

@@ -56,6 +56,7 @@ func main() {
 	}
 
 	// Static file serving for frontend
+	// Serve built assets under /static to avoid Gin wildcard conflicts with /api
 	router.Static("/static", "./static")
 	router.NoRoute(func(c *gin.Context) {
 		c.File("./static/index.html")

@@ -1,0 +1,18 @@
+# Ignore node and go modules and build artifacts
+node_modules
+frontend/node_modules
+backend/bin
+backend/.cache
+dist
+build
+.git
+.gitignore
+.DS_Store
+.env
+.env.*
+*.db
+data
+storage
+.vscode
+.idea
+*.log
